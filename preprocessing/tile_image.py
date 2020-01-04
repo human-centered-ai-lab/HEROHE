@@ -40,16 +40,14 @@ def tileSlide(inputpath, outputpath, imagename, level):
    json_slide["dimensions"] = slide.dimensions
    json_slide["level_dimensions"] = slide.level_dimensions
    json_slide["level_downsamples"] = slide.level_downsamples
-   json_slide["properties"] = slide.properties
-   json_slide["associated_images"] = slide.associated_images
+   #json_slide["properties"] = slide.properties
+   #json_slide["associated_images"] = slide.associated_images
 
    # Create Thumbnail & H istogram
    thumbnail = slide.get_thumbnail(slide.level_dimensions[thumbnaillevel])
    thumbnail.load()
-   thumbnail_image = PIL.Image.new("RGB", thumbnail.size, (255, 255, 255))
-   thumbnail_image.paste(thumbnail, mask=thumbnail.split()[3])
-   thumbnail_histogram = thumbnail_image.histogram()
-   thumbnail_image.save(os.path.join(outputFolder, str(imagename[:fileExtenstionPosition]) + "_thumbnail.jpg"))
+   thumbnail_histogram = thumbnail.histogram()
+   thumbnail.save(os.path.join(outputFolder, str(imagename[:fileExtenstionPosition]) + "_thumbnail.jpg"))
    plt.figure(0)
    for i in range(0, 256):
       plt.bar(i, thumbnail_histogram[0:256][i], color=getRed(i), edgecolor=getRed(i), alpha=0.3)
