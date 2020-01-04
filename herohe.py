@@ -3,10 +3,10 @@ import openslide
 from preprocessing.tile_image import tileSlide
 
 slideextension = "mrxs"
-datasetpath = "E:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE"
+datasetpath = "G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE"
 folderpositive = "positive"
 foldernegative = "negative"
-outputpath = "E:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE"
+outputpath = "H:\HEROHE_CHALLENGE\DataSet"
 
 filename = "1"
 
