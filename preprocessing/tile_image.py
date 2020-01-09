@@ -32,6 +32,8 @@ def tileSlide(inputpath, outputpath, imagename, level):
    outputFolder = os.path.join(outputpath, str(imagename[:fileExtenstionPosition]) + "_" + str(tileSizeX) + "x" + str(tileSizeY))
    if not os.path.exists(outputFolder):
       os.makedirs(outputFolder)
+   else:
+      return
 
    # Create Json for Slide
    json_slide = {}
@@ -72,6 +74,8 @@ def tileSlide(inputpath, outputpath, imagename, level):
    tilesX = int(slideWidth / tileSizeX) + 1
    tilesY = int(slideHeight / tileSizeY) + 1
 
+   json_slide["tile"] = []
+
    for tilePositionX in range(tilesX):
       for tilePositionY in range(tilesY):
          json_tile = {}
@@ -90,7 +94,7 @@ def tileSlide(inputpath, outputpath, imagename, level):
          tile_image.paste(tile, mask=tile.split()[3])
          #print("Image loaded: " + str(timer - time.time()))
          #timer = time.time()
-         json_slide["tile"] = []
+
 
          tileHistogram= tile_image.histogram()
          if tileHistogram[255] == cutoff and tileHistogram[511] == cutoff and tileHistogram[767] == cutoff:
@@ -101,11 +105,11 @@ def tileSlide(inputpath, outputpath, imagename, level):
             #print("Sum")
             #print(tileHistogram)
             continue
-         json_slide["tile_histogram_r"] = tileHistogram[0:256]
-         json_slide["tile_histogram_g"] = tileHistogram[256:512]
-         json_slide["tile_histogram_b"] = tileHistogram[512:768]
+         json_tile["tile_histogram_r"] = tileHistogram[0:256]
+         json_tile["tile_histogram_g"] = tileHistogram[256:512]
+         json_tile["tile_histogram_b"] = tileHistogram[512:768]
 
-         json_slide["tile"].append(json_slide)
+         json_slide["tile"].append(json_tile)
 
          tile_image.save(os.path.join(outputFolder, "x" + str(tilePositionX) + "_y" + str(tilePositionY) + '.jpg'))
          #print("Save Image: " + str(timer - time.time()))

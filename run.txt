@@ -1,0 +1,300 @@
+C:\Users\rober\.virtualenvs\herohe-dZU_ugmI\Scripts\python.exe C:/work/development/development/herohe/herohe.py
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\1.mrxs
+Slide 1.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1701.402822971344 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\10.mrxs
+Slide 10.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1778.7120299339294 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\11.mrxs
+Slide 11.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1861.9199385643005 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\12.mrxs
+Slide 12.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1730.0740718841553 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\13.mrxs
+Slide 13.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1870.2125082015991 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\137.mrxs
+wSlide 137.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1828.135363817215 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\14.mrxs
+Slide 14.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1935.6152799129486 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\147.mrxs
+Slide 147.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1639.6306943893433 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\148.mrxs
+Slide 148.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1613.7177646160126 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\149.mrxs
+Slide 149.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1671.6544620990753 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\15.mrxs
+Slide 15.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1790.1192302703857 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\150.mrxs
+Slide 150.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1452.859974861145 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\154.mrxs
+Slide 154.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1664.0726749897003 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\156.mrxs
+Slide 156.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1602.7717633247375 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\157.mrxs
+Slide 157.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1307.8183040618896 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\16.mrxs
+Slide 16.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1541.8040039539337 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\17.mrxs
+Slide 17.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1738.2458837032318 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\170.mrxs
+Slide 170.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1629.8113129138947 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\178.mrxs
+Slide 178.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1891.2564976215363 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\18.mrxs
+Slide 18.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1432.5451254844666 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\181.mrxs
+Slide 181.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1826.7704153060913 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\189.mrxs
+Slide 189.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1879.35982131958 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\190.mrxs
+Slide 190.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1471.842092037201 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\197.mrxs
+Slide 197.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1589.3448147773743 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\198.mrxs
+Slide 198.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1379.442899465561 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\2.mrxs
+Slide 2.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1633.1709382534027 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\20.mrxs
+Slide 20.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1672.5483765602112 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\21.mrxs
+Slide 21.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 2037.447729587555 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\210.mrxs
+Slide 210.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1365.488201379776 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\211.mrxs
+Slide 211.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1728.2797012329102 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\22.mrxs
+Slide 22.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 2120.3032932281494 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\222.mrxs
+Slide 222.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1495.3319823741913 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\226.mrxs
+Slide 226.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 2171.8472447395325 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\228.mrxs
+Slide 228.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1519.7210023403168 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\23.mrxs
+Slide 23.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1723.9471881389618 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\234.mrxs
+Slide 234.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1567.4458138942719 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\236.mrxs
+Slide 236.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1496.7005240917206 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\24.mrxs
+Slide 24.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1650.0270631313324 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\243.mrxs
+Slide 243.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1902.4420664310455 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\25.mrxs
+Slide 25.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1612.7920639514923 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\26.mrxs
+Slide 26.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1675.4510023593903 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\27.mrxs
+Slide 27.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1619.8908014297485 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\28.mrxs
+Slide 28.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1537.048003911972 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\29.mrxs
+Slide 29.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1797.7441284656525 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\3.mrxs
+Slide 3.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1324.86723446846 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\30.mrxs
+Slide 30.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1508.3762187957764 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\31.mrxs
+Slide 31.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 2070.854751586914 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\32.mrxs
+Slide 32.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1693.3514754772186 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\324.mrxs
+Slide 324.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1408.7496464252472 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\325.mrxs
+Slide 325.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1385.4101302623749 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\34.mrxs
+Slide 34.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1939.7601232528687 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\346.mrxs
+Slide 346.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1849.6367285251617 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\347.mrxs
+Slide 347.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1467.4331064224243 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\348.mrxs
+Slide 348.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1458.9841830730438 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\349.mrxs
+Slide 349.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1367.2517759799957 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\35.mrxs
+Slide 35.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1760.7372691631317 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\350.mrxs
+Slide 350.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1481.1196627616882 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\352.mrxs
+Slide 352.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1461.504834651947 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\353.mrxs
+Slide 353.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1467.0072894096375 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\354.mrxs
+Slide 354.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1559.3333082199097 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\355.mrxs
+Slide 355.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1412.0864312648773 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\356.mrxs
+Slide 356.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1451.0068547725677 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\357.mrxs
+Slide 357.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1391.977802991867 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\358.mrxs
+Slide 358.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1445.2611873149872 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\359.mrxs
+Slide 359.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1614.1943216323853 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\36.mrxs
+Slide 36.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1492.9203951358795 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\360.mrxs
+Slide 360.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1689.0933623313904 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\361.mrxs
+Slide 361.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1636.8535623550415 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\362.mrxs
+Slide 362.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1754.0241298675537 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\363.mrxs
+Slide 363.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1817.1778173446655 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\364.mrxs
+Slide 364.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1687.617401599884 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\365.mrxs
+Slide 365.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1621.0982403755188 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\367.mrxs
+Slide 367.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1496.7097706794739 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\368.mrxs
+Slide 368.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 2316.8791468143463 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\369.mrxs
+Slide 369.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1742.877848625183 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\37.mrxs
+Slide 37.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1665.1757361888885 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\370.mrxs
+Slide 370.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1852.3065240383148 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\371.mrxs
+Slide 371.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1765.1593515872955 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\372.mrxs
+Slide 372.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1588.6698701381683 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\373.mrxs
+Slide 373.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1680.8038341999054 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\374.mrxs
+Slide 374.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1602.9313855171204 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\375.mrxs
+Slide 375.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1341.4514400959015 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\378.mrxs
+Slide 378.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1693.4242355823517 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\379.mrxs
+Slide 379.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1793.324732542038 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\38.mrxs
+Slide 38.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1547.8710587024689 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\380.mrxs
+Slide 380.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1679.8825585842133 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\381.mrxs
+Slide 381.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1548.96359872818 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\383.mrxs
+Slide 383.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1707.8688220977783 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\384.mrxs
+Slide 384.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1534.1866595745087 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\385.mrxs
+Slide 385.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1421.8932416439056 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\386.mrxs
+Slide 386.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1808.1806931495667 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\387.mrxs
+Slide 387.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1677.3833057880402 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\39.mrxs
+Slide 39.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1428.5982162952423 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\391.mrxs
+Slide 391.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1636.387167930603 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\392.mrxs
+Slide 392.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1638.6009902954102 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\393.mrxs
+Slide 393.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 2655.574087381363 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\395.mrxs
+Slide 395.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1801.7929482460022 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\396.mrxs
+Slide 396.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1793.9168708324432 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\397.mrxs
+Slide 397.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1537.5588631629944 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\399.mrxs
+Slide 399.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1532.8730010986328 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\4.mrxs
+Slide 4.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1760.8509697914124 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\40.mrxs
+Slide 40.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 2158.890144586563 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\400.mrxs
+Slide 400.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1644.5155720710754 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\401.mrxs
+Slide 401.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1791.0058100223541 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\402.mrxs
+Slide 402.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1865.3770451545715 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\403.mrxs
+Slide 403.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1518.398443698883 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\404.mrxs
+Slide 404.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1667.3182661533356 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\405.mrxs
+Slide 405.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1736.5501725673676 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\406.mrxs
+Slide 406.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1715.3777344226837 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\407.mrxs
+Slide 407.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1667.9322063922882 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\408.mrxs
+Slide 408.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1693.1394584178925 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\409.mrxs
+Slide 409.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1557.8228647708893 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\41.mrxs
+Slide 41.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1968.0043573379517 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\410.mrxs
+Slide 410.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1823.64777135849 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\412.mrxs
+Slide 412.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 2314.930431842804 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\413.mrxs
+Slide 413.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1815.6122901439667 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\415.mrxs
+Slide 415.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1777.823729276657 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\416.mrxs
+Slide 416.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1603.4278404712677 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\417.mrxs
+Slide 417.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1794.1557817459106 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\418.mrxs
+Slide 418.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1869.3558778762817 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\419.mrxs
+Slide 419.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1548.4992344379425 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\42.mrxs
+Slide 42.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 2098.313477039337 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\420.mrxs
+Slide 420.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1616.3666293621063 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\421.mrxs
+Slide 421.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1814.9312541484833 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\422.mrxs
+Slide 422.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1556.2697360515594 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\423.mrxs
+Slide 423.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1699.594263792038 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\424.mrxs
+Slide 424.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1512.2648179531097 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\425.mrxs
+Slide 425.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1414.77090716362 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\426.mrxs
+Slide 426.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1583.0649585723877 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\427.mrxs
+Slide 427.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1685.9479520320892 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\428.mrxs
+Slide 428.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1580.677638053894 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\429.mrxs
+Slide 429.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1622.0829586982727 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\430.mrxs
+Slide 430.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1644.124139547348 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\431.mrxs
+Slide 431.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1490.7813465595245 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\432.mrxs
+Slide 432.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1724.9039223194122 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\433.mrxs
+Slide 433.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1766.1711919307709 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\434.mrxs
+Slide 434.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1479.6991319656372 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\435.mrxs
+Slide 435.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1680.8646070957184 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\437.mrxs
+Slide 437.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1429.7704734802246 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\438.mrxs
+Slide 438.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1628.8982350826263 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\44.mrxs
+Slide 44.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 5577.6036512851715 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\441.mrxs
+Slide 441.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1720.2192566394806 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\442.mrxs
+Slide 442.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1681.1143114566803 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\443.mrxs
+Slide 443.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1595.3413166999817 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\444.mrxs
+Slide 444.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 2009.2754547595978 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\445.mrxs
+Slide 445.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1804.406934261322 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\446.mrxs
+Slide 446.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1985.7463026046753 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\447.mrxs
+Slide 447.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1889.6938681602478 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\448.mrxs
+Slide 448.mrxs [271950x294038]  tiled into 305900 Tiles (532x575) in 1942.0891637802124 secounds.
+G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE\negative\449.mrxs
