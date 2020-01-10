@@ -40,16 +40,19 @@ class TileSlide(Thread):
 
    def tileSlide(self, inputpath, outputpath, imagename, level):
       startTime = time.time()
-      # Load Slide
-      slide = openslide.OpenSlide(os.path.join(inputpath, imagename))
 
       # Create Folder
       fileExtenstionPosition = imagename.rfind(".")
-      outputFolder = os.path.join(outputpath, str(imagename[:fileExtenstionPosition]) + "_" + str(self.tileSizeX) + "x" + str(self.tileSizeY))
+      outputFolder = os.path.join(outputpath,
+                                  str(imagename[:fileExtenstionPosition]) + "_" + str(self.tileSizeX) + "x" + str(
+                                     self.tileSizeY))
       if not os.path.exists(outputFolder):
          os.makedirs(outputFolder)
       else:
          return
+
+      # Load Slide
+      slide = openslide.OpenSlide(os.path.join(inputpath, imagename))
 
       # Create Json for Slide
       json_slide = {}
