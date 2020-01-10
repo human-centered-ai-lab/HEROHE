@@ -9,6 +9,9 @@ from skimage.io import imread, imshow
 from skimage.transform import resize
 import matplotlib.pyplot as plt
 
+physical_devices = tf.config.experimental.list_physical_devices('GPU')
+tf.config.experimental.set_memory_growth(physical_devices[0], True)
+
 IMG_WIDTH = 512
 IMG_HEIGHT = 512
 IMG_CHANNELS = 3
@@ -34,11 +37,8 @@ for n, id_ in tqdm(enumerate(train_ids), total=len(train_ids)):
     img = imread(path + '/images/' + id_ + '.png')[:,:,:IMG_CHANNELS]
     img = resize(img, (IMG_HEIGHT, IMG_WIDTH, 1), mode='constant', preserve_range=True)
     X_train[n] = img
-    mask = np.zeros((IMG_HEIGHT, IMG_WIDTH, 1), dtype=np.bool)
-    for mask_file in next(os.walk(path + '/masks/'))[2]:
-        mask_ = imread(path + '/masks/' + mask_file)
-        mask_ = np.expand_dims(resize(mask_, (IMG_HEIGHT, IMG_WIDTH), mode='constant', preserve_range=True), axis=-1)
-        mask = np.maximum(mask, mask_)
+    mask = imread(path + '/mask/' + id_ + '.png')
+    mask = np.expand_dims(resize(mask, (IMG_HEIGHT, IMG_WIDTH), mode='constant', preserve_range=True), axis=-1)
     Y_train[n] = mask
 
 
@@ -48,19 +48,20 @@ for n, id_ in tqdm(enumerate(test_ids), total=len(test_ids)):
     img = resize(img, (IMG_HEIGHT, IMG_WIDTH, 1), mode='constant', preserve_range=True)
     X_test[n] = img
 
+'''
 for i in range(0, 10):
     ix = random.randint(0, len(train_ids))
     imshow(X_train[ix])
     plt.show()
     imshow(np.squeeze(Y_train[ix]))
     plt.show()
-
+'''
 print('Preprocessin Image done')
 
 ######################################################
 print('Define Model')
 
-inputs = tf.keras.Input((IMG_WIDTH, IMG_HEIGHT, IMG_CHANNELS))
+inputs = tf.keras.layers.Input((IMG_WIDTH, IMG_HEIGHT, IMG_CHANNELS))
 inputs_f = tf.keras.layers.Lambda(lambda x: x / 255)(inputs)
 
 c1 = tf.keras.layers.Conv2D(16, (3,3), activation='relu', kernel_initializer='he_normal', padding='same')(inputs_f)
@@ -116,7 +117,7 @@ outputs = tf.keras.layers.Conv2D(1, (1, 1), activation='sigmoid')(c9)
 #model= tf.keras.models.load_model("saved_models/",custom_objects=None,compile=True)
 
 
-model = tf.keras.Model(inputs=inputs, outputs=outputs)
+model = tf.keras.Model(inputs=[inputs], outputs=[outputs])
 model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
 model.summary()
 
@@ -130,7 +131,7 @@ callbacks = [
     tf.keras.callbacks.EarlyStopping(patience=3, monitor='val_loss'),
     tf.keras.callbacks.TensorBoard(log_dir='logs')
 ]
-results = model.fit(X_train, Y_train, validation_split=0.1, batch_size=16, epochs=100, callbacks=callbacks)
+results = model.fit(X_train, Y_train, validation_split=0.1, batch_size=1, epochs=100, callbacks=callbacks)
 
 print('Train Model done')
 ######################################################
