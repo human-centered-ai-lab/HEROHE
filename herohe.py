@@ -1,33 +1,35 @@
 import os
-import openslide
-from preprocessing.tile_image import tileSlide
+from preprocessing.tile_image import TileSlide
+from queue import Queue
+from threading import Thread
+from time import time
 
-slideextension = "mrxs"
-datasetpath = "G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE"
-folderpositive = "positive"
-foldernegative = "negative"
-outputpath = "H:\HEROHE_CHALLENGE\DataSet\\tiled"
+def preprocessing():
+   ts = time()
+   slideextension = "mrxs"
+   #datasetpath = "G:\HEROHE_CHALLENGE\DataSet\HEROHE_CHALLENGE"
+   #outputpath = "H:\HEROHE_CHALLENGE\DataSet\\tiled"
+   datasetpath = "D:\GoogleDrive\Arbeit\HEROHE_Challenge\TEST"
+   outputpath = "C:\work\HEROHE\\test\\tiled"
 
-#filename = "1"
+   # Preprocessing:
+   queue = Queue()
 
-'''
-slide = openslide.OpenSlide(os.path.join(datasetpath, foldernegative, str(filename) + "." + slideextension))
+   for x in range(16):
+           worker = TileSlide(queue)
+           # Setting daemon to True will let the main thread exit even though the workers are blocking
+           worker.daemon = True
+           worker.start()
 
-print(slide.level_count)
-print(slide.dimensions)
-print(slide.level_dimensions)
-print(slide.level_downsamples)
-print(slide.properties)
-print(slide.associated_images)
-'''
+   for root, dirs, files in os.walk(datasetpath, topdown=False):
+      for name in files:
+         if name.endswith(slideextension):
+            queue.put((root, outputpath, name, 0))
+            #print(os.path.join(root, name))
+            #tileSlide( root, outputpath, name, 0)
 
-for root, dirs, files in os.walk(datasetpath, topdown=False):
-   for name in files:
-      if name.endswith(slideextension):
-         print(os.path.join(root, name))
-         #print(root)
-         #print(name)
-         tileSlide( root, outputpath, name, 0)
+   queue.join()
+   print('Preprocessing took %s', time() - ts)
 
-#tileSlide(os.path.join(datasetpath, foldernegative), outputpath, str(filename) + "." + slideextension, 0)
-#tileSlide("C:\work\TMP", "E:\\tiled", str(filename) + "." + slideextension, 0)
+if __name__ == '__main__':
+    preprocessing()
