@@ -24,16 +24,18 @@ def getBlue(blueVal):
 
 def tileSlide(inputpath, outputpath, imagename, level):
    startTime = time.time()
-   # Load Slide
-   slide = openslide.OpenSlide(os.path.join(inputpath, imagename))
 
    # Create Folder
    fileExtenstionPosition = imagename.rfind(".")
-   outputFolder = os.path.join(outputpath, str(imagename[:fileExtenstionPosition]) + "_" + str(tileSizeX) + "x" + str(tileSizeY))
+   outputFolder = os.path.join(outputpath,
+                               str(imagename[:fileExtenstionPosition]) + "_" + str(tileSizeX) + "x" + str(tileSizeY))
    if not os.path.exists(outputFolder):
       os.makedirs(outputFolder)
    else:
       return
+
+   # Load Slide
+   slide = openslide.OpenSlide(os.path.join(inputpath, imagename))
 
    # Create Json for Slide
    json_slide = {}
