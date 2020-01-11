@@ -18,6 +18,7 @@ IMG_CHANNELS = 3
 
 TRAINING_PATH = 'D:\GoogleDrive\Arbeit\HEROHE_Challenge\data-science-bowl-2018\stage1_train'
 TEST_PATH = 'D:\GoogleDrive\Arbeit\HEROHE_Challenge\data-science-bowl-2018\stage1_test'
+TEST_PATH = 'E:\\1_512x512'
 
 
 print('Preprocessin Image')
@@ -26,11 +27,11 @@ test_seed = 42
 np.random.seed = test_seed
 
 train_ids = next(os.walk(TRAINING_PATH))[1]
-test_ids = next(os.walk(TEST_PATH))[1]
+test_ids = next(os.walk(TEST_PATH))[2]
 
 X_train = np.zeros((len(train_ids), IMG_HEIGHT, IMG_WIDTH, IMG_CHANNELS), dtype=np.uint8)
 Y_train = np.zeros((len(train_ids), IMG_HEIGHT, IMG_WIDTH, 1), dtype=np.bool)
-X_test = np.zeros((len(train_ids), IMG_HEIGHT, IMG_WIDTH, IMG_CHANNELS), dtype=np.uint8)
+X_test = np.zeros((len(test_ids), IMG_HEIGHT, IMG_WIDTH, IMG_CHANNELS), dtype=np.uint8)
 
 for n, id_ in tqdm(enumerate(train_ids), total=len(train_ids)):
     path = TRAINING_PATH + '\\' + id_
@@ -41,13 +42,19 @@ for n, id_ in tqdm(enumerate(train_ids), total=len(train_ids)):
     mask = np.expand_dims(resize(mask, (IMG_HEIGHT, IMG_WIDTH), mode='constant', preserve_range=True), axis=-1)
     Y_train[n] = mask
 
+for n, id_ in tqdm(enumerate(test_ids), total=len(test_ids)):
+    path = TEST_PATH
+    img = imread(path + '/' + id_)[:,:,:IMG_CHANNELS]
+    img = resize(img, (IMG_HEIGHT, IMG_WIDTH, 1), mode='constant', preserve_range=True)
+    X_test[n] = img
 
+'''
 for n, id_ in tqdm(enumerate(test_ids), total=len(test_ids)):
     path = TEST_PATH + '\\' + id_
     img = imread(path + '/images/' + id_ + '.png')[:,:,:IMG_CHANNELS]
     img = resize(img, (IMG_HEIGHT, IMG_WIDTH, 1), mode='constant', preserve_range=True)
     X_test[n] = img
-
+'''
 '''
 for i in range(0, 10):
     ix = random.randint(0, len(train_ids))
@@ -127,31 +134,41 @@ print('Train Model')
 
 
 callbacks = [
-    tf.keras.callbacks.ModelCheckpoint('model_test.h5', verbose=1),
+    tf.keras.callbacks.ModelCheckpoint('model_test.h5', verbose=0, save_best_only=True),
     tf.keras.callbacks.EarlyStopping(patience=3, monitor='val_loss'),
     tf.keras.callbacks.TensorBoard(log_dir='logs')
 ]
-results = model.fit(X_train, Y_train, validation_split=0.1, batch_size=1, epochs=100, callbacks=callbacks)
+results = model.fit(X_train, Y_train, validation_split=0.1, batch_size=1, epochs=100, callbacks=callbacks, verbose=0)
 
 print('Train Model done')
 ######################################################
 print('Test Model')
 
-preds_train = model.predict(X_train[:int(X_train.shape[0]*0.9)], verbose=1)
-preds_val = model.predict(X_train[int(X_train.shape[0]*0.9):], verbose=1)
+print("--------------------1")
+#preds_train = model.predict(X_train[:int(X_train.shape[0]*0.9)], verbose=1)
+print("--------------------2")
+#preds_val = model.predict(X_train[int(X_train.shape[0]*0.9):], verbose=1)
+print("--------------------3")
 preds_test = model.predict(X_test, verbose=1)
+print("--------------------4")
 
-preds_train_t = (preds_train > 0.5).astype(np.uint8)
-preds_val_t = (preds_val > 0.5).astype(np.uint8)
+#preds_train_t = (preds_train > 0.5).astype(np.uint8)
+#preds_val_t = (preds_val > 0.5).astype(np.uint8)
 preds_test_t = (preds_test > 0.5).astype(np.uint8)
 
-for i in range(0, 10):
-    ix = random.randint(0, len(X_train))
-    imshow(X_train[int(X_train.shape[0]*0.9):][ix])
-    plt.show()
-    imshow(np.squeeze(Y_train[int(Y_train.shape[0]*0.9):][ix]))
-    plt.show()
-    imshow(np.squeeze(preds_val_t[ix]))
-    plt.show()
+print("--------------------")
+#for i in range(0, 10):
+ix = random.randint(0, len(X_test))
+imshow(X_test[ix])
+plt.show()
+imshow(np.squeeze(preds_test_t[ix]))
+plt.show()
+
+ex_path = 'C:\work\HEROHE\preds_test\\'
+
+for n, id_ in tqdm(enumerate(test_ids), total=len(test_ids)):
+    #imshow(np.squeeze(preds_test_t[n]))
+    plt.imsave(ex_path + 'cut05_' + id_ ,np.squeeze(preds_test_t[n]))
+    plt.imsave(ex_path + 'full_' + id_, np.squeeze(preds_test_t[n]))
 
 print('Test Model done')
