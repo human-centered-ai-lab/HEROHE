@@ -119,7 +119,7 @@ slide_names_pos = c()
 for (i in 1:length(tests[,2])){
   slide_vals = c()
   class_vec_neg = cbind(class_vec_neg, c(0))
-  slide_names_neg = rbind(slide_names_neg, tests_pos[,2])
+  slide_names_neg = rbind(slide_names_neg, tests_neg[,2])
   
   slide_vals = cbind(slide_vals, length(herohe_data_xl_neg[herohe_data_xl_neg$filename == tests_neg[, 2][i],]$nucleus_area))
   slide_vals = cbind(slide_vals, length(herohe_data_l_neg[herohe_data_l_neg$filename == tests_neg[, 2][i],]$nucleus_area))
@@ -147,7 +147,7 @@ class_vec_pos = c()
 for(i in 1:length(tests_neg[, 2])){
   slide_vals = c()
   class_vec_pos = cbind(class_vec_pos, c(1))
-  slide_names_pos = rbind(slide_names_pos, tests[,2])
+  slide_names_pos = rbind(slide_names_pos, tests_pos[,2])
   
   slide_vals = cbind(slide_vals, length(herohe_data_xl_pos[herohe_data_xl_pos$filename == tests_pos[, 2][i],]$nucleus_area))
   slide_vals = cbind(slide_vals, length(herohe_data_l_pos[herohe_data_l_pos$filename == tests_pos[, 2][i],]$nucleus_area))
