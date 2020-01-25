@@ -101,8 +101,8 @@ test7 = sort(unique(herohe_data_m_pos$filename))
 test8 = sort(unique(herohe_data_s_pos$filename))
 tests_neg = cbind(test1,test2,test3,test4)
 tests_pos = cbind(test5,test6,test7,test8)
-her_pos = cbind(herohe_data_xl_pos, herohe_data_l_pos, herohe_data_m_pos, herohe_data_s_pos)
-her_neg = cbind(herohe_data_xl_neg, herohe_data_l_neg, herohe_data_m_neg, herohe_data_s_neg)
+her_pos = rbind(herohe_data_xl_pos, herohe_data_l_pos, herohe_data_m_pos, herohe_data_s_pos)
+her_neg = rbind(herohe_data_xl_neg, herohe_data_l_neg, herohe_data_m_neg, herohe_data_s_neg)
 
 herohe_data_l_neg$nucleus_circularity[herohe_data_l_neg$filename == "367.mrxs"]
 test = her_neg[her_neg$filename == "367.mrxs",]$nucleus_area < 85 
