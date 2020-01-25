@@ -105,7 +105,7 @@ her_pos = rbind(herohe_data_xl_pos, herohe_data_l_pos, herohe_data_m_pos, herohe
 her_neg = rbind(herohe_data_xl_neg, herohe_data_l_neg, herohe_data_m_neg, herohe_data_s_neg)
 
 herohe_data_l_neg$nucleus_circularity[herohe_data_l_neg$filename == "367.mrxs"]
-test = her_neg[her_neg$filename == "367.mrxs",]$nucleus_area < 85 
+test = her_neg[her_neg$filename == "232.mrxs",]$nucleus_area < 85 
 range(test$nucleus_area)
 print(length(tests_neg[2, ]))
 slide_mat_neg = c()
@@ -120,35 +120,35 @@ slide_names_pos = c()
 for (i in 1:length(tests_neg[2,])){
   slide_vals = c()
   class_vec_neg = cbind(class_vec_neg, c(0))
-  slide_names_neg = rbind(slide_names_neg, tests_neg[, 2])
+  slide_names_neg = rbind(slide_names_neg, tests_neg[, 2][i])
   
   slide_vals = cbind(slide_vals, length(herohe_data_xl_neg[herohe_data_xl_neg$filename == tests_neg[2,][i],]$nucleus_area))
   slide_vals = cbind(slide_vals, length(herohe_data_l_neg[herohe_data_l_neg$filename == tests_neg[2,][i],]$nucleus_area))
   slide_vals = cbind(slide_vals, length(herohe_data_m_neg[herohe_data_m_neg$filename == tests_neg[2,][i],]$nucleus_area))
   slide_vals = cbind(slide_vals, length(herohe_data_s_neg[herohe_data_s_neg$filename == tests_neg[2,][i],]$nucleus_area))
+  
   slide_vals = slide_vals/sum(slide_vals)
-  slide_names_neg = cbind(slide_names_neg[,2][i], slide_names_neg)
 
   slide_vals = cbind(slide_vals, mean(herohe_data_xl_neg[herohe_data_xl_neg$filename == tests_neg[2,][i],]$nucleus_circularity))
   slide_vals = cbind(slide_vals, mean(herohe_data_l_neg[herohe_data_l_neg$filename == tests_neg[2,][i],]$nucleus_circularity))
   slide_vals = cbind(slide_vals, mean(herohe_data_m_neg[herohe_data_m_neg$filename == tests_neg[2,][i],]$nucleus_circularity))
   slide_vals = cbind(slide_vals, mean(herohe_data_s_neg[herohe_data_s_neg$filename == tests_neg[2,][i],]$nucleus_circularity))
   
-  slide_vals = cbind(slide_vals, mean(herohe_data_xl_neg[herohe_data_xl_neg$filename == tests_neg[2,][i],]$nucleus_perimeter))
+  #slide_vals = cbind(slide_vals, mean(herohe_data_xl_neg[herohe_data_xl_neg$filename == tests_neg[2,][i],]$nucleus_perimeter))
   slide_vals = cbind(slide_vals, mean(herohe_data_l_neg[herohe_data_l_neg$filename == tests_neg[2,][i],]$nucleus_perimeter))
   slide_vals = cbind(slide_vals, mean(herohe_data_m_neg[herohe_data_m_neg$filename == tests_neg[2,][i],]$nucleus_perimeter))
   slide_vals = cbind(slide_vals, mean(herohe_data_s_neg[herohe_data_s_neg$filename == tests_neg[2,][i],]$nucleus_perimeter))
 
   slide_mat_neg = rbind(slide_mat_neg, slide_vals)
   print(i)
-  print(length(tests_neg[, 2]))
+  print(length(tests_neg[2,]))
 }
 slide_mat_pos = c()
 class_vec_pos = c()
 for(i in 1:length(tests_pos[2,])){
   slide_vals = c()
   class_vec_pos = cbind(class_vec_pos, c(1))
-  slide_names_pos = rbind(slide_names_pos, tests_pos[,2])
+  slide_names_pos = rbind(slide_names_pos, tests_pos[,2][i])
   
   slide_vals = cbind(slide_vals, length(herohe_data_xl_pos[herohe_data_xl_pos$filename == tests_pos[2,][i],]$nucleus_area))
   slide_vals = cbind(slide_vals, length(herohe_data_l_pos[herohe_data_l_pos$filename == tests_pos[2,][i],]$nucleus_area))
@@ -156,30 +156,31 @@ for(i in 1:length(tests_pos[2,])){
   slide_vals = cbind(slide_vals, length(herohe_data_s_pos[herohe_data_s_pos$filename == tests_pos[2,][i],]$nucleus_area))
 
   slide_vals = slide_vals/sum(slide_vals)
-  slide_names_pos = cbind(slide_names_pos[,2][i], slide_names_pos)
+  print(slide_vals)
   
   slide_vals = cbind(slide_vals, mean(herohe_data_xl_pos[herohe_data_xl_pos$filename == tests_pos[2,][i],]$nucleus_circularity))
   slide_vals = cbind(slide_vals, mean(herohe_data_l_pos[herohe_data_l_pos$filename == tests_pos[2,][i],]$nucleus_circularity))
   slide_vals = cbind(slide_vals, mean(herohe_data_m_pos[herohe_data_m_pos$filename == tests_pos[2,][i],]$nucleus_circularity))
   slide_vals = cbind(slide_vals, mean(herohe_data_s_pos[herohe_data_s_pos$filename == tests_pos[2,][i],]$nucleus_circularity))
-
+  # print(slide_vals)
   
-  slide_vals = cbind(slide_vals, mean(herohe_data_xl_pos[herohe_data_xl_pos$filename == tests_pos[,2][i],]$nucleus_perimeter))
+  #slide_vals = cbind(slide_vals, mean(herohe_data_xl_pos[herohe_data_xl_pos$filename == tests_pos[,2][i],]$nucleus_perimeter))
   slide_vals = cbind(slide_vals, mean(herohe_data_l_pos[herohe_data_l_pos$filename == tests_pos[2,][i],]$nucleus_perimeter))
   slide_vals = cbind(slide_vals, mean(herohe_data_m_pos[herohe_data_m_pos$filename == tests_pos[2,][i],]$nucleus_perimeter))
   slide_vals = cbind(slide_vals, mean(herohe_data_s_pos[herohe_data_s_pos$filename == tests_pos[2,][i],]$nucleus_perimeter))
-
+  # print(tests_pos[2,][i])
+  # print(slide_vals)
   slide_mat_pos = rbind(slide_mat_pos, slide_vals)
   print(i)
   print(length(tests_pos[2,]))
 } 
 setwd("/home/simon/PycharmProjects/robert_sql/")
-write.table(slide_mat_neg, file = "slide_data_neg.txt", append = FALSE, quote = TRUE, sep = " ",
-            eol = "\n", na = "NA", dec = ".", row.names = TRUE,
+write.table(slide_mat_neg, file = "slide_data_neg_v2.txt", append = FALSE, quote = TRUE, sep = " ",
+            eol = "\n", na = '0', dec = ".", row.names = TRUE,
             col.names = TRUE, qmethod = c("escape", "double"),
             fileEncoding = "")
-write.table(slide_mat_pos, file = "slide_data_pos.txt", append = FALSE, quote = TRUE, sep = " ",
-             eol = "\n", na = "NA", dec = ".", row.names = TRUE,
+write.table(slide_mat_pos, file = "slide_data_pos_v2.txt", append = FALSE, quote = TRUE, sep = " ",
+             eol = "\n", na = '0', dec = ".", row.names = TRUE,
              col.names = TRUE, qmethod = c("escape", "double"),
              fileEncoding = "")
 
@@ -190,16 +191,20 @@ df_pos = data.frame(slide_mat_pos)
 slide_mat_neg1 = rapply(df_neg, f=function(x) ifelse(is.nan(x),0,x), how="replace" )
 slide_mat_pos1 = rapply(df_pos, f=function(x) ifelse(is.nan(x),0,x), how="replace" )
 
-write.table(slide_mat_neg1, file = "slide_data_neg1.txt", append = FALSE, quote = TRUE, sep = " ",
-            eol = "\n", na = "NA", dec = ".", row.names = TRUE,
+
+
+write.table(slide_mat_neg1, file = "slide_data_neg1_v2.txt", append = FALSE, quote = TRUE, sep = " ",
+            eol = "\n", na = '0', dec = ".", row.names = TRUE,
             col.names = TRUE, qmethod = c("escape", "double"),
             fileEncoding = "")
-write.table(slide_mat_pos1, file = "slide_data_pos1.txt", append = FALSE, quote = TRUE, sep = " ",
-            eol = "\n", na = "NA", dec = ".", row.names = TRUE,
+write.table(slide_mat_pos1, file = "slide_data_pos1_v2.txt", append = FALSE, quote = TRUE, sep = " ",
+            eol = "\n", na = '0', dec = ".", row.names = TRUE,
             col.names = TRUE, qmethod = c("escape", "double"),
             fileEncoding = "")
 
-# the follwing is an R l-bfgs Test sadly there is no diretly implemented fitting methond use later for getting cofindece and
+
+
+# the follwing is an R l-bfgs Test sadly there is no diretly implemented fitting method to use later for getting cofindece and
 # cross validation code is working basically creates filter matrices for the object and splits them in training and test set
 # shuffling was ommited since this was only a test.
 

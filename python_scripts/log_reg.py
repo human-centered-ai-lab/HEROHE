@@ -6,7 +6,7 @@ from sklearn.utils import shuffle
 from sklearn.model_selection import train_test_split
 
 
-with open("/home/simon/PycharmProjects/robert_sql/slide_data_neg1.txt") as fp:
+with open("/home/simon/PycharmProjects/robert_sql/slide_data_neg1_v2.txt") as fp:
     lines = fp.readlines()
     X_neg = np.zeros((len(lines)-1, len(lines[0].split(" "))))
     params = []
@@ -22,7 +22,7 @@ with open("/home/simon/PycharmProjects/robert_sql/slide_data_neg1.txt") as fp:
 
 y_neg = np.zeros(X_neg.shape[0])
 lines = None
-with open("/home/simon/PycharmProjects/robert_sql/slide_data_pos1.txt") as fp:
+with open("/home/simon/PycharmProjects/robert_sql/slide_data_pos1_v2.txt") as fp:
     lines = fp.readlines()
     print(len(lines))
     X_pos = np.zeros((len(lines) - 1, len(lines[0].split(" "))))
@@ -44,10 +44,12 @@ y = np.concatenate((y_neg, y_pos))
 print(X.shape, y.shape)
 
 X, y = shuffle(X, y, random_state=0)
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.4, random_state=42)
 
-lr = LogisticRegression(C=0.4, class_weight=None, dual=False, fit_intercept=True,
-                   intercept_scaling=1, l1_ratio=0.8, max_iter=5000,
+sol
+
+lr = LogisticRegression(C=0.3, class_weight=None, dual=False, fit_intercept=True,
+                   intercept_scaling=1, l1_ratio=0.6, max_iter=5000,
                    multi_class='ovr', n_jobs=6, penalty="elasticnet",
                    random_state=None, solver='saga', tol=0.0001, verbose=0,
                    warm_start=False)

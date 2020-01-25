@@ -8,7 +8,10 @@ import keras
 from skimage import img_as_float, io
 from keras.callbacks import ModelCheckpoint, TensorBoard
 from sklearn.utils import shuffle
+from keras import regularizers
 
+## code partially taken from Anna Seranti cnn. model part
+## Data gen and other studd done by me
 
 class DataGenerator(keras.utils.Sequence):
     'Generates data for Keras'
@@ -67,7 +70,7 @@ class DataGenerator(keras.utils.Sequence):
 
 
 
-with open("/home/simon/PycharmProjects/robert_sql/slide_data_neg1.txt") as fp:
+with open("/home/simon/PycharmProjects/robert_sql/slide_data_neg1_v2.txt") as fp:
     lines = fp.readlines()
     X_neg = np.zeros((len(lines)-1, len(lines[0].split(" "))))
     params = []
@@ -83,7 +86,7 @@ with open("/home/simon/PycharmProjects/robert_sql/slide_data_neg1.txt") as fp:
 
 y_neg = np.zeros(X_neg.shape[0])
 lines = None
-with open("/home/simon/PycharmProjects/robert_sql/slide_data_pos1.txt") as fp:
+with open("/home/simon/PycharmProjects/robert_sql/slide_data_pos1_v2.txt") as fp:
     lines = fp.readlines()
     print(len(lines))
     X_pos = np.zeros((len(lines) - 1, len(lines[0].split(" "))))
@@ -127,10 +130,12 @@ if mini_cnn:
     # cnn_model.add(layers.MaxPooling2D((2, 2)))
     # cnn_model.add(layers.Conv2D(16, (3, 3), activation='relu'))
     # cnn_model.add(layers.Flatten())
-    cnn_model.add(layers.Dense(300, activation='relu'))
-    cnn_model.add(layers.Dense(150, activation='relu'))
-    cnn_model.add(layers.Dense(75, activation='relu'))
-    cnn_model.add(layers.Dense(15, activation='relu'))
+    cnn_model.add(layers.Dense(150, activation='relu', kernel_regularizer=regularizers.l2(0.01),
+                activity_regularizer=regularizers.l1(0.1)))
+    cnn_model.add(layers.Dense(75, activation='relu', kernel_regularizer=regularizers.l2(0.01),
+                activity_regularizer=regularizers.l1(0.05)))
+    cnn_model.add(layers.Dense(15, activation='relu', kernel_regularizer=regularizers.l2(0.01),
+                activity_regularizer=regularizers.l1(0.01)))
     cnn_model.add(layers.Dense(1, activation='sigmoid'))
 
 else:
@@ -147,9 +152,10 @@ else:
 
     # this is the model we will train
 
-cnn_model.build(input_shape=(10, X_train.shape[1]))
+cnn_model.build(input_shape=(1, X_train.shape[1]))
+print(X_train.shape[1])
 cnn_model.compile(
-    optimizer=optimizers.Adam(lr=1e-3),
+    optimizer=optimizers.Adam(lr=1e-5),
     loss='binary_crossentropy',
     metrics=['binary_accuracy']
 )
@@ -173,9 +179,9 @@ callback_tensorboard = TensorBoard(log_dir='./22_logs/',
                                    write_graph=False)
 callbacks = [callback_checkpoint, callback_tensorboard]
 
-epochs_nr = 4
+epochs_nr = 20
 history = cnn_model.fit(X_train, y_train,
-    batch_size=20,
+    batch_size=1,
     epochs=epochs_nr,
     validation_data=(X_test, y_test)
 )
