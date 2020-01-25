@@ -68,47 +68,89 @@ class DataGenerator(keras.utils.Sequence):
 
         return X, [y]
 
+# with open("/home/simon/PycharmProjects/robert_sql/slide_data_neg1_v2.txt") as fp:
+#     lines = fp.readlines()
+#     X_neg = np.zeros((len(lines)-1, len(lines[0].split(" "))))
+#     params = []
+#     for i, line in enumerate(lines):
+#         line_arr = line.replace("\n,", "").split(" ")
+#         for k, item in enumerate(line_arr):
+#             if k == 0:
+#                 continue
+#             elif i == 0:
+#                 params.append(item)
+#             elif k > 0:
+#                 X_neg[i - 1, k- 1] = float(item)
+#
+# y_neg = np.zeros(X_neg.shape[0])
+# lines = None
+# with open("/home/simon/PycharmProjects/robert_sql/slide_data_pos1_v2.txt") as fp:
+#     lines = fp.readlines()
+#     print(len(lines))
+#     X_pos = np.zeros((len(lines) - 1, len(lines[0].split(" "))))
+#     y_pos = np.zeros(len(lines))
+#     for i, line in enumerate(lines):
+#         line_arr = line.replace("\n,", "").split(" ")
+#         for k, item in enumerate(line_arr):
+#             if k == 0:
+#                 continue
+#             elif i == 0:
+#                 params.append(item)
+#             elif k > 0:
+#                 X_pos[i - 1, k - 1] = float(item)
 
-
-with open("/home/simon/PycharmProjects/robert_sql/slide_data_neg1_v2.txt") as fp:
+# y_pos = np.ones(X_pos.shape[0])
+# X = np.concatenate((X_neg, X_pos))
+# print(X.shape)
+# y = np.concatenate((y_neg, y_pos))
+# print(X.shape, y.shape)
+with open("/home/simon/PycharmProjects/robert_sql/slide_data_rob_v1.txt") as fp:
     lines = fp.readlines()
-    X_neg = np.zeros((len(lines)-1, len(lines[0].split(" "))))
+    X = []
+    X_test = []
+    classes = []
+    y = []
     params = []
     for i, line in enumerate(lines):
         line_arr = line.replace("\n,", "").split(" ")
+        slide_vec = []
         for k, item in enumerate(line_arr):
-            if k == 0:
-                continue
-            elif i == 0:
+            if i == 0:
                 params.append(item)
-            elif k > 0:
-                X_neg[i - 1, k- 1] = float(item)
-
-y_neg = np.zeros(X_neg.shape[0])
-lines = None
-with open("/home/simon/PycharmProjects/robert_sql/slide_data_pos1_v2.txt") as fp:
-    lines = fp.readlines()
-    print(len(lines))
-    X_pos = np.zeros((len(lines) - 1, len(lines[0].split(" "))))
-    y_pos = np.zeros(len(lines))
-    for i, line in enumerate(lines):
-        line_arr = line.replace("\n,", "").split(" ")
-        for k, item in enumerate(line_arr):
-            if k == 0:
                 continue
-            elif i == 0:
-                params.append(item)
-            elif k > 0:
-                X_pos[i - 1, k - 1] = float(item)
+            elif k == 0:
+                continue
+            elif k == 1 and i > 0:
+                cl = float(item)
+                if cl == 1 or cl == 0:
+                    y.append(cl)
+                classes.append(cl)
+            elif k > 0 and i != 0:
+                if classes[-1] == - 1:
+                    slide_vec.append(float(item))
+                else:
+                    slide_vec.append(float(item))
+        if i != 0 and classes[-1] == -1:
+            if len(X_test) == 0:
+                #print(slide_vec)
+                X_test = np.array(slide_vec)
+            else:
+                X_test = np.vstack((X_test, slide_vec))
+        elif i != 0:
+            if len(X) == 0:
+                #print(slide_vec)
+                X = np.array(slide_vec)
+            else:
+                #print(slide_vec)
+                X = np.vstack((X, slide_vec))
+                #print(X)
 
-y_pos = np.ones(X_pos.shape[0])
-X = np.concatenate((X_neg, X_pos))
-print(X.shape)
-y = np.concatenate((y_neg, y_pos))
+y = np.array(y)
 print(X.shape, y.shape)
 
+
 X, y = shuffle(X, y, random_state=0)
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.3, random_state=42)
 
 batch_size = 10
 
@@ -130,12 +172,13 @@ if mini_cnn:
     # cnn_model.add(layers.MaxPooling2D((2, 2)))
     # cnn_model.add(layers.Conv2D(16, (3, 3), activation='relu'))
     # cnn_model.add(layers.Flatten())
-    cnn_model.add(layers.Dense(150, activation='relu', kernel_regularizer=regularizers.l2(0.01),
-                activity_regularizer=regularizers.l1(0.1)))
-    cnn_model.add(layers.Dense(75, activation='relu', kernel_regularizer=regularizers.l2(0.01),
-                activity_regularizer=regularizers.l1(0.05)))
-    cnn_model.add(layers.Dense(15, activation='relu', kernel_regularizer=regularizers.l2(0.01),
-                activity_regularizer=regularizers.l1(0.01)))
+    cnn_model.add(layers.Dense(15, activation='relu'))
+    cnn_model.add(layers.Dense(30, activation='relu')),
+    cnn_model.add(layers.Dense(100, activation='relu'))
+    cnn_model.add(layers.Dense(200, activation='relu'))
+    cnn_model.add(layers.Dense(100, activation='relu'))
+    cnn_model.add(layers.Dense(30, activation='relu'))
+    cnn_model.add(layers.Dense(15, activation='relu'))
     cnn_model.add(layers.Dense(1, activation='sigmoid'))
 
 else:
@@ -152,10 +195,9 @@ else:
 
     # this is the model we will train
 
-cnn_model.build(input_shape=(1, X_train.shape[1]))
-print(X_train.shape[1])
+cnn_model.build(input_shape=((9, X_train.shape[1])))
 cnn_model.compile(
-    optimizer=optimizers.Adam(lr=1e-5),
+    optimizer=optimizers.Adam(lr=1e-4),
     loss='binary_crossentropy',
     metrics=['binary_accuracy']
 )
@@ -179,9 +221,10 @@ callback_tensorboard = TensorBoard(log_dir='./22_logs/',
                                    write_graph=False)
 callbacks = [callback_checkpoint, callback_tensorboard]
 
-epochs_nr = 20
+epochs_nr = 1000
 history = cnn_model.fit(X_train, y_train,
-    batch_size=1,
+    batch_size=9,
     epochs=epochs_nr,
-    validation_data=(X_test, y_test)
+    validation_data=(X_val, y_val),
+    shuffle=True
 )
