@@ -8,7 +8,7 @@ I. QuPath image preprocessing:
 - Run groovy script "QuPath/ProjectDetection.groovy" for Project ("Automate" -> "Show Script Editor" -> "Run" -> "Run for Project") or just pull the file on the opened QuPath which will open the script    editor and then ("Run" -> "Run for Project")
 - The output will be in the Project QuPath Folder
 
-II. SQL Database Setup in Python
+II. SQL Database Setup in Python\
   TODO
 
 III. Run classification 
