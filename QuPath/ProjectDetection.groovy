@@ -26,5 +26,5 @@ runPlugin('qupath.imagej.detect.cells.WatershedCellDetection', '{"detectionImage
 detections = getDetectionObjects()
 print("I have " + detections.size() + " detections")
 
-def path = buildFilePath(PROJECT_BASE_DIR, "detections", fname + "_" + fdir + ".txt")
+def path = buildFilePath(PROJECT_BASE_DIR, "detections", fname + ".txt")
 saveDetectionMeasurements(path)
