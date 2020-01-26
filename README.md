@@ -16,11 +16,13 @@ Commands : test/train testing
 
 Arguments:\
 --logs path/to/logdir Location of Tensorboard logs and model checkpoints\
-  If not set will create the folder logs_her2 in script root directory and save checkpoints there\
+    If not set will create the folder logs_her2 in script root directory and save checkpoints there\
+
 --subdir /path/to/subdir/ Location of the subdirectory to save submission file to /path/to/subdir/ \
-  If not set will create folder submissions_her2 in script root directory and save CSV file there \
+    If not set will create folder submissions_her2 in script root directory and save CSV file there \
+
 --filename The filname of the generated CSV file (default) \
-  Default: Her2_test_results.csv
+    Default: Her2_test_results.csv
 
 Example Usage:\
 without args:\
