@@ -27,7 +27,7 @@ without args:\
 python3 /path/to/script/test_nn.py train\
 python3 /path/to/script/test_nn.py test\
 
-with args:
+with args:\
 python3 /path/to/script/test_nn.py train --logs path/to/logdir --subdir path/to/submission_dir/ \
 python3 /path/to/script/test_nn.py test --logs path/to/logdir --subdir path/to/submission_dir/ \
 
