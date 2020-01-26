@@ -13,6 +13,7 @@ command line:
 python3 /path/to/script/test_nn.py <command> --arg1 --arg2 
 
 Commands : test/train testing 
+
 Arguments: 
 --logs path/to/logdir Location of Tensorboard logs and model checkpoints
   
