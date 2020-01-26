@@ -1,12 +1,25 @@
 # HEROHE
 Grand Challenge HEROHE (HER2 on HE)
 
-python_scripts test_nn.py instructions:
+I. QuPath image preprocessing:
+
+- Create new project in QuPath\
+- Import slides into Project\
+- Run groovy script "QuPath/ProjectDetection.groovy" for Project ("Automate" -> "Show Script Editor" -> "Run" -> "Run for Project") or just pull the file on the opened QuPath which will open the script    editor and then ("Run" -> "Run for Project")\
+- The output will be in the Project QuPath Folder
+
+II. SQL Database Setup in Python
+  TODO
+
+III. Run classification 
+
+test_nn.py instructions:
 
 NOTE: SQL Database must be set up by this point otherwise the following will not work.
 
 1. Set SQL database credentials:
-  To set SQL credentials open test_nn.py and chane the DATABASE= item where you can find the neccesary entries
+  To set SQL credentials open test_nn.py and change the DATABASE= item at the bottom. 
+  Here you can find the neccesary entries (User, Pw, Name)
 
 2. navigate to /path/to/script/test_nn.py\
 command line:\
