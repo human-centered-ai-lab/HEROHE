@@ -104,7 +104,7 @@ class DataGenerator(keras.utils.Sequence):
 # print(X.shape)
 # y = np.concatenate((y_neg, y_pos))
 # print(X.shape, y.shape)
-with open("/home/simon/PycharmProjects/robert_sql/slide_data_rob_v1.txt") as fp:
+with open("C:\work\development\development\HEROHE\python_scripts\slide_data_rob_v1.txt") as fp:
     lines = fp.readlines()
     X = []
     X_test = []
@@ -221,10 +221,11 @@ callback_tensorboard = TensorBoard(log_dir='./22_logs/',
                                    write_graph=False)
 callbacks = [callback_checkpoint, callback_tensorboard]
 
-epochs_nr = 1000
+epochs_nr = 1200
 history = cnn_model.fit(X_train, y_train,
     batch_size=9,
     epochs=epochs_nr,
     validation_data=(X_val, y_val),
+    callbacks=callbacks,
     shuffle=True
 )
