@@ -49,5 +49,5 @@ When testing the loads a checkpoint from the path specified under log_dir, like 
 If you want to specify a certain loaction and filename for the results you can do so otherwise when no arguments are set the 
 filpath and name will be as stated above.
 
-Training:\
-TODO
+- Training:\
+  TODO
