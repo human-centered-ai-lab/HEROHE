@@ -17,7 +17,7 @@ test_nn.py instructions:
 
 NOTE: SQL Database must be set up by this point otherwise the following will not work.
 
--Set SQL database credentials:\
+- Set SQL database credentials:\
   To set SQL credentials:\ 
   Open test_nn.py and change the DATABASE= item at the bottom.\ 
   Here you can find the neccesary entries (User, Pw, Name)
