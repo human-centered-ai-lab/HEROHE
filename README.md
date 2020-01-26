@@ -44,7 +44,7 @@ python3 /path/to/script/test_nn.py train --logs path/to/logdir --subdir path/to/
 python3 /path/to/script/test_nn.py test --logs path/to/logdir --subdir path/to/submission_dir/ 
 
 - Testing:\
-When testing the loads a checkpoint from the path specified under log_dir, like in python_scripts/logs_her2 here for the default case. 
+When testing the model loads a checkpoint from the path specified under log_dir, like in python_scripts/logs_her2 here for the default case. 
 If you want to specify a certain loaction and filename for the results you can do so otherwise when no arguments are set the 
 filpath and name will be as stated above.
 
