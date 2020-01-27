@@ -1,231 +1,253 @@
+import argparse
 from keras import layers, models, optimizers
-from keras.applications.densenet import DenseNet121
 import numpy as np
-from sklearn.metrics import confusion_matrix
 from sklearn.model_selection import train_test_split
 import tensorflow as tf
 import keras
-from skimage import img_as_float, io
+import os
 from keras.callbacks import ModelCheckpoint, TensorBoard
 from sklearn.utils import shuffle
-from keras import regularizers
+import pandas as pd
+from sqlalchemy import create_engine
+
+DEFAULT_LOG = "submissions_her2/"
 
 ## code partially taken from Anna Seranti cnn. model part
 ## Data gen and other studd done by me
+# create sqlalchemy engine
 
-class DataGenerator(keras.utils.Sequence):
-    'Generates data for Keras'
-    def __init__(self, data_dict, batch_size=32, dim=(32,32,32), n_channels=1,
-                 n_classes=10, shuffle=True):
-        'Initialization'
-        super().__init__()
-        self.dim = dim
-        self.batch_size = batch_size
-        self.data_dict = data_dict
-        self.n_channels = n_channels
-        self.n_classes = n_classes
-        self.shuffle = shuffle
-        self.on_epoch_end()
-        self.files = np.array([data_dict[item][0] for item in data_dict.keys()])
-        self.labels = [data_dict[item][1] for item in data_dict.keys()]
+def load_model():
+    """create a simple keras model.
 
-    def __len__(self):
-        'Denotes the number of batches per epoch'
-        return int(np.floor(len(self.data_dict.keys()) / self.batch_size))
+        @:return model a keras.model.models instance
+    """
+    act = "relu"
+    model = models.Sequential()
+    model.add(layers.Dense(18, activation=act))
+    model.add(layers.Dense(36, activation=act)),
+    model.add(layers.Dense(100, activation=act))
+    model.add(layers.Dense(200, activation=act))
+    model.add(layers.Dense(100, activation=act))
+    model.add(layers.Dense(36, activation=act))
+    model.add(layers.Dense(18, activation=act))
+    model.add(layers.Dense(1, activation='sigmoid'))
 
-    def __getitem__(self, index):
-        'Generate one batch of data'
-        # Generate indexes of the batch
-        indexes = self.indexes[index*self.batch_size:(index+1)*self.batch_size]
+    return model
 
-        # Find list of IDs
-        list_IDs_temp = [self.files[k] for k in indexes]
-        labels_temp = [self.labels[k] for k in indexes]
+def train(engine_string, log_dir):
+    """Load a subset of the nuclei dataset.
 
-        # Generate data
-        X, y = self.__data_generation(list_IDs_temp, labels_temp)
+        @:param engine_string The read string for the database
+        @:param log_dir The directory where the tensorboard files and checkpoints are stored
 
-        return X, y
+        @:return None
+    """
 
-    def on_epoch_end(self):
-        'Updates indexes after each epoch'
-        self.indexes = np.arange(len(self.data_dict.keys()))
-        if self.shuffle:
-            np.random.shuffle(self.indexes)
+    engine = create_engine(engine_string)
 
-    def __data_generation(self, list_IDs_temp, labels_temp):
-        'Generates data containing batch_size samples' # X : (n_samples, *dim, n_channels)
-        # Initialization
-        X = np.empty((self.batch_size, *self.dim, self.n_channels))
-        y = np.empty((self.batch_size), dtype=int)
+    # read a table from database into pandas dataframe, replace "tablename" with your table name
 
-        # Generate data
-        for i, ID in enumerate(list_IDs_temp):
-            # Store sample
-            X[i,] = img_as_float(io.imread(ID))
-            # Store class
-            y[i] = labels_temp[i]
+    #for check data
+    # df = pd.read_sql('SELECT id, name, image_id, her2status, mean_nucleus_area, number_of_nucleus_area_small, number_of_nucleus_area_medium, '
+    #                  'number_of_nucleus_area_large, number_of_nucleus_area_extralarge, mean_nucleus_circularity, mean_nucleus_circularity_small, '
+    #                  'mean_nucleus_circularity_medium, mean_nucleus_circularity_large, mean_nucleus_circularity_extralarge, mean_nucleus_hematoxylin_od_mean, '
+    #                  'nucleus_hematoxylin_od_mean_small, nucleus_hematoxylin_od_mean_medium, nucleus_hematoxylin_od_mean_large, nucleus_hematoxylin_od_mean_extralarge, '
+    #                  'aria_circularity_mean, aria_circularity_density_mean, aria_circularity_mean_small, aria_circularity_density_mean_small, aria_circularity_mean_medium, '
+    #                  'aria_circularity_density_mean_medium, aria_circularity_mean_large, aria_circularity_density_mean_large, aria_circularity_mean_extralarge, '
+    #                  'aria_circularity_density_mean_extralarge, number_of_nucleus_circularity_small, number_of_nucleus_circularity_medium, '
+    #                  'number_of_nucleus_circularity_large FROM public.herohe_data WHERE her2status != -1;',engine, index_col='id')
 
-        return X, [y]
+    y = pd.read_sql('SELECT her2status FROM public.herohe_data WHERE her2status != -1;',engine)
 
-# with open("/home/simon/PycharmProjects/robert_sql/slide_data_neg1_v2.txt") as fp:
-#     lines = fp.readlines()
-#     X_neg = np.zeros((len(lines)-1, len(lines[0].split(" "))))
-#     params = []
-#     for i, line in enumerate(lines):
-#         line_arr = line.replace("\n,", "").split(" ")
-#         for k, item in enumerate(line_arr):
-#             if k == 0:
-#                 continue
-#             elif i == 0:
-#                 params.append(item)
-#             elif k > 0:
-#                 X_neg[i - 1, k- 1] = float(item)
-#
-# y_neg = np.zeros(X_neg.shape[0])
-# lines = None
-# with open("/home/simon/PycharmProjects/robert_sql/slide_data_pos1_v2.txt") as fp:
-#     lines = fp.readlines()
-#     print(len(lines))
-#     X_pos = np.zeros((len(lines) - 1, len(lines[0].split(" "))))
-#     y_pos = np.zeros(len(lines))
-#     for i, line in enumerate(lines):
-#         line_arr = line.replace("\n,", "").split(" ")
-#         for k, item in enumerate(line_arr):
-#             if k == 0:
-#                 continue
-#             elif i == 0:
-#                 params.append(item)
-#             elif k > 0:
-#                 X_pos[i - 1, k - 1] = float(item)
-
-# y_pos = np.ones(X_pos.shape[0])
-# X = np.concatenate((X_neg, X_pos))
-# print(X.shape)
-# y = np.concatenate((y_neg, y_pos))
-# print(X.shape, y.shape)
-with open("C:\work\development\development\HEROHE\python_scripts\slide_data_rob_v1.txt") as fp:
-    lines = fp.readlines()
-    X = []
-    X_test = []
-    classes = []
-    y = []
-    params = []
-    for i, line in enumerate(lines):
-        line_arr = line.replace("\n,", "").split(" ")
-        slide_vec = []
-        for k, item in enumerate(line_arr):
-            if i == 0:
-                params.append(item)
-                continue
-            elif k == 0:
-                continue
-            elif k == 1 and i > 0:
-                cl = float(item)
-                if cl == 1 or cl == 0:
-                    y.append(cl)
-                classes.append(cl)
-            elif k > 0 and i != 0:
-                if classes[-1] == - 1:
-                    slide_vec.append(float(item))
-                else:
-                    slide_vec.append(float(item))
-        if i != 0 and classes[-1] == -1:
-            if len(X_test) == 0:
-                #print(slide_vec)
-                X_test = np.array(slide_vec)
-            else:
-                X_test = np.vstack((X_test, slide_vec))
-        elif i != 0:
-            if len(X) == 0:
-                #print(slide_vec)
-                X = np.array(slide_vec)
-            else:
-                #print(slide_vec)
-                X = np.vstack((X, slide_vec))
-                #print(X)
-
-y = np.array(y)
-print(X.shape, y.shape)
+    df_train_raw = pd.read_sql('SELECT  mean_nucleus_area, number_of_nucleus_area_small, number_of_nucleus_area_medium, '
+                     'number_of_nucleus_area_large, number_of_nucleus_area_extralarge, mean_nucleus_circularity, mean_nucleus_circularity_small, '
+                     'mean_nucleus_circularity_medium, mean_nucleus_circularity_large, mean_nucleus_circularity_extralarge, mean_nucleus_hematoxylin_od_mean, '
+                     'nucleus_hematoxylin_od_mean_small, nucleus_hematoxylin_od_mean_medium, nucleus_hematoxylin_od_mean_large, nucleus_hematoxylin_od_mean_extralarge, '
+                     'aria_circularity_mean, aria_circularity_density_mean, aria_circularity_mean_small, aria_circularity_density_mean_small, aria_circularity_mean_medium, '
+                     'aria_circularity_density_mean_medium, aria_circularity_mean_large, aria_circularity_density_mean_large, aria_circularity_mean_extralarge, '
+                     'aria_circularity_density_mean_extralarge, number_of_nucleus_circularity_small, number_of_nucleus_circularity_medium, '
+                     'number_of_nucleus_circularity_large FROM public.herohe_data WHERE her2status != -1;',engine)
 
 
-X, y = shuffle(X, y, random_state=0)
-X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.3, random_state=42)
+    X = np.array(df_train_raw)
+    y = np.array(y)
 
-batch_size = 10
 
-params = {'dim': (600,600),
-          'batch_size': 5,
-          'n_classes': 1,
-          'n_channels': 3,
-          'shuffle': True}
+    # check data
+    # y_compare = df["her2status"]
+    # for item1, item2 in zip(y, y_compare):
+    #     print(item1, "y_new", item2, "y_compare")
+    #     input()
 
-# data_gen_train = DataGenerator(data_dict, **params)
-# data_gen_val = DataGenerator(data_dict_val, **params)
+    #clean_nans
+    X = np.where(np.isnan(X), 0,  X)
 
-mini_cnn = True
-if mini_cnn:
-    cnn_model = models.Sequential()
-    # cnn_model.add(layers.Conv2D(16, (3, 3), activation='relu', input_shape=(600, 600, 3)))
-    # cnn_model.add(layers.MaxPooling2D((2, 2)))
-    # cnn_model.add(layers.Conv2D(16, (3, 3), activation='relu'))
-    # cnn_model.add(layers.MaxPooling2D((2, 2)))
-    # cnn_model.add(layers.Conv2D(16, (3, 3), activation='relu'))
-    # cnn_model.add(layers.Flatten())
-    cnn_model.add(layers.Dense(15, activation='relu'))
-    cnn_model.add(layers.Dense(30, activation='relu')),
-    cnn_model.add(layers.Dense(100, activation='relu'))
-    cnn_model.add(layers.Dense(200, activation='relu'))
-    cnn_model.add(layers.Dense(100, activation='relu'))
-    cnn_model.add(layers.Dense(30, activation='relu'))
-    cnn_model.add(layers.Dense(15, activation='relu'))
-    cnn_model.add(layers.Dense(1, activation='sigmoid'))
+    X, y = shuffle(X, y, random_state=0)
+    X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.3, random_state=42)
 
-else:
-    # add a global spatial average pooling layer
-    base_model = DenseNet121(include_top=False, weights='imagenet')
-    x = base_model.output
-    x = layers.GlobalAveragePooling2D()(x)
-    # let's add a fully-connected layer
-    x = layers.Dense(200, activation='relu')(x)
-    # and a logistic layer -- let's say we have 200 classes
-    predictions = layers.Dense(1, activation='sigmoid')(x)
+    epochs_nr = 1200
+    batch_size = 506
 
-    cnn_model = keras.models.Model(inputs=base_model.input, outputs=predictions)
+    model = load_model()
 
-    # this is the model we will train
+    model.build(input_shape=(None, X_train.shape[1]))
+    model.compile(
+        optimizer=optimizers.Adam(lr=1e-3),
+        loss='binary_crossentropy',
+        metrics=['binary_accuracy']
+    )
 
-cnn_model.build(input_shape=((9, X_train.shape[1])))
-cnn_model.compile(
-    optimizer=optimizers.Adam(lr=1e-4),
-    loss='binary_crossentropy',
-    metrics=['binary_accuracy']
-)
+    model.summary()
 
-cnn_model.summary()
-for layer in cnn_model.layers:
-    if"bn" in layer.name:
-        layer.trainable = False
+    callback_checkpoint = ModelCheckpoint(filepath=os.path.join(logdir, path_checkpoint),
+                                          verbose=1,
+                                          save_weights_only=True)
 
-if not mini_cnn:
-    path_checkpoint: str = 'dense_checkpoint.keras'
-else:
+    callback_tensorboard = TensorBoard(log_dir= log_dir,
+                                       histogram_freq=0,
+                                       write_graph=False)
+
+    callbacks = [callback_checkpoint, callback_tensorboard]
+
+    history = model.fit(X_train, y_train,
+        batch_size=batch_size,
+        epochs=epochs_nr,
+        validation_data=(X_val, y_val),
+        shuffle=True,
+        callbacks=callbacks
+    )
+
+
+def test(engine_string, chekpoint_path, submit_dir, filename):
+    """Load a saved checkpoint for the model and classify the Herohe and create the submission CSV
+
+            @:param engine_string The read string for the database
+            @:param log_dir The directory where the tensorboard files and checkpoints are stored
+
+            @:return None
+    """
+
+    engine = create_engine(engine_string)
+    batch_size = 1
+
+    df_test_raw = pd.read_sql('SELECT mean_nucleus_area, number_of_nucleus_area_small, number_of_nucleus_area_medium, '
+                              'number_of_nucleus_area_large, number_of_nucleus_area_extralarge, mean_nucleus_circularity, mean_nucleus_circularity_small, '
+                              'mean_nucleus_circularity_medium, mean_nucleus_circularity_large, mean_nucleus_circularity_extralarge, mean_nucleus_hematoxylin_od_mean, '
+                              'nucleus_hematoxylin_od_mean_small, nucleus_hematoxylin_od_mean_medium, nucleus_hematoxylin_od_mean_large, nucleus_hematoxylin_od_mean_extralarge, '
+                              'aria_circularity_mean, aria_circularity_density_mean, aria_circularity_mean_small, aria_circularity_density_mean_small, aria_circularity_mean_medium, '
+                              'aria_circularity_density_mean_medium, aria_circularity_mean_large, aria_circularity_density_mean_large, aria_circularity_mean_extralarge, '
+                              'aria_circularity_density_mean_extralarge, number_of_nucleus_circularity_small, number_of_nucleus_circularity_medium, '
+                              'number_of_nucleus_circularity_large FROM public.herohe_data WHERE her2status != -1;',
+                              engine)
+
+    files_test_raw = np.array(pd.read_sql('SELECT name FROM public.herohe_data WHERE her2status = -1;', engine))
+
+    X_test = np.array(df_test_raw)
+    X_test = np.where(np.isnan(X_test), 0, X_test)
+
+    print(files_test_raw.shape, X_test.shape)
+
+    model = load_model()
+    model.build(input_shape=(batch_size, X_test.shape[1]))
+    model.load_weights(chekpoint_path)
+    model.summary()
+    test_results = {}
+    for item1, item2 in zip(X_test, files_test_raw):
+        test_results.update({item2[0]: []})
+
+        sample = np.reshape(item1, (batch_size, X_test.shape[1]))
+        result = model.predict(sample, batch_size=1)
+
+        test_results[item2[0]].append(result.squeeze())
+        if result.squeeze() < .5:
+            test_results[item2[0]].append(0)
+        else:
+            test_results[item2[0]].append(1)
+
+    # get submission path
+    if submit_dir == DEFAULT_LOG:
+        path1 = os.path.join(os.path.dirname(os.path.realpath(__file__)), submit_dir)
+        if not os.path.exists(path1):
+            os.mkdir(path1)
+        path1 = os.path.join(path1, filename)
+    else:
+        if not os.path.exists(submit_dir):
+            os.mkdir(submit_dir)
+        path1 = os.path.join(submit_dir, filename)
+
+    csvfile = open(path1, 'w')
+    features = []
+    features.insert(0, 'hard_preditction')
+    features.insert(0, 'soft_prediction')
+    features.insert(0, 'caseID')
+
+    line = ','.join(map(str, features))
+    csvfile.write(line + "\n")
+    for item in test_results:
+        line_arr = []
+        line_arr.append(item.split("_")[0])
+        for item2 in test_results[item]:
+            line_arr.append(item2)
+        line = ','.join(map(str, line_arr))
+        csvfile.write(line + "\n")
+    csvfile.close()
+
+
+################################### main fucntion #############################################
+if __name__ == '__main__':
+
+    parser = argparse.ArgumentParser(
+        description='Herohe challenge Test/Train Skript')
+    parser.add_argument("command",
+                        metavar="<command>",
+                        help="'train' or 'test'")
+    parser.add_argument('--logs', required=False,
+                        default="logs_her2/",
+                        metavar="/path/to/logs/",
+                        help='Logs and checkpoints directory path (path/to/logdir)')
+    parser.add_argument('--subdir', required=False,
+                        default = DEFAULT_LOG,
+                        metavar="/path/to/subdir/",
+                        help="path to the subdirectory to save submission file to /path/to/subdir/")
+    parser.add_argument('--filename', required=False,
+                        default = "Her2_test_results.csv",
+                        metavar="<filename>",
+                        help="The filname of the generated CSV file")
+
+    args = parser.parse_args()
+
+    DATABASES = {
+        'challenge': {
+            'NAME': 'postgres',
+            'USER': 'postgres',
+            'PASSWORD': 'postgres',
+            'HOST': '127.0.0.1',
+            'PORT': 5432,
+        },
+    }
+
+    logdir = args.logs
     path_checkpoint: str = 'mini_checkpoint.keras'
+    chekpoint_path = os.path.join(logdir, path_checkpoint)
 
-callback_checkpoint = ModelCheckpoint(filepath=path_checkpoint,
-                                      verbose=1,
-                                      save_weights_only=True)
 
-callback_tensorboard = TensorBoard(log_dir='./22_logs/',
-                                   histogram_freq=0,
-                                   write_graph=False)
-callbacks = [callback_checkpoint, callback_tensorboard]
+    # choose the database to use
+    db = DATABASES['challenge']
+    np.random.seed(42)
 
-epochs_nr = 1200
-history = cnn_model.fit(X_train, y_train,
-    batch_size=9,
-    epochs=epochs_nr,
-    validation_data=(X_val, y_val),
-    callbacks=callbacks,
-    shuffle=True
-)
+    # construct an engine connection string
+    engine_string = "postgresql+psycopg2://{user}:{password}@{host}:{port}/{database}".format(
+        user=db['USER'],
+        password=db['PASSWORD'],
+        host=db['HOST'],
+        port=db['PORT'],
+        database=db['NAME'],
+    )
+
+    if args.command == "train":
+        train(engine_string, args.logs)
+    elif args.command == "test":
+        test(engine_string, chekpoint_path, args.subdir, args.filename)
+    else:
+        print("'{}' is not recognized. "
+              "Use 'train' or 'test'".format(args.command))
