@@ -2,8 +2,17 @@ import os
 import psycopg2
 from tqdm import tqdm
 
+#################################
+# Update Path and DB connection #
+#################################
 import_folder_path = "D:\GoogleDrive\Arbeit\HEROHE_Challenge\TestExtractedDataV2"
 pgConnectString = "host='localhost' port='5432' dbname='heroshetest' user='robert' password='fenris'"
+
+
+#################################
+# Create DB structure           #
+#################################
+
 pgConnection=psycopg2.connect(pgConnectString)
 pgCursor = pgConnection.cursor()
 
