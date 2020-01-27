@@ -140,7 +140,7 @@ def test(engine_string, chekpoint_path, submit_dir, filename):
                               'number_of_nucleus_circularity_large FROM public.herohe_data WHERE her2status != -1;',
                               engine)
 
-    files_test_raw = np.array(pd.read_sql('SELECT name FROM public.herohe_data WHERE her2status != -1;', engine))
+    files_test_raw = np.array(pd.read_sql('SELECT name FROM public.herohe_data WHERE her2status = -1;', engine))
 
     X_test = np.array(df_test_raw)
     X_test = np.where(np.isnan(X_test), 0, X_test)
