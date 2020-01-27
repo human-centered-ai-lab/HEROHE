@@ -21,7 +21,7 @@ def load_model():
 
         @:return model a keras.model.models instance
     """
-    act = "relu"
+    act = "elu"
     model = models.Sequential()
     model.add(layers.Dense(18, activation=act))
     model.add(layers.Dense(36, activation=act)),
@@ -85,14 +85,14 @@ def train(engine_string, log_dir):
     X, y = shuffle(X, y, random_state=0)
     X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.3, random_state=42)
 
-    epochs_nr = 1200
-    batch_size = 506
+    epochs_nr = 410
+    batch_size = 32
 
     model = load_model()
 
     model.build(input_shape=(None, X_train.shape[1]))
     model.compile(
-        optimizer=optimizers.Adam(lr=1e-3),
+        optimizer=optimizers.Nadam(lr=0.5e-3),
         loss='binary_crossentropy',
         metrics=['binary_accuracy']
     )
