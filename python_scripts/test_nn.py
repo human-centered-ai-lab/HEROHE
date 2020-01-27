@@ -21,15 +21,15 @@ def load_model():
 
         @:return model a keras.model.models instance
     """
-
+    act = "relu"
     model = models.Sequential()
-    model.add(layers.Dense(15, activation='relu'))
-    model.add(layers.Dense(30, activation='relu')),
-    model.add(layers.Dense(100, activation='relu'))
-    model.add(layers.Dense(200, activation='relu'))
-    model.add(layers.Dense(100, activation='relu'))
-    model.add(layers.Dense(30, activation='relu'))
-    model.add(layers.Dense(15, activation='relu'))
+    model.add(layers.Dense(18, activation=act))
+    model.add(layers.Dense(36, activation=act)),
+    model.add(layers.Dense(100, activation=act))
+    model.add(layers.Dense(200, activation=act))
+    model.add(layers.Dense(100, activation=act))
+    model.add(layers.Dense(36, activation=act))
+    model.add(layers.Dense(18, activation=act))
     model.add(layers.Dense(1, activation='sigmoid'))
 
     return model
@@ -86,13 +86,13 @@ def train(engine_string, log_dir):
     X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.3, random_state=42)
 
     epochs_nr = 1200
-    batch_size = 9
+    batch_size = 506
 
     model = load_model()
 
-    model.build(input_shape=(batch_size, X_train.shape[1]))
+    model.build(input_shape=(None, X_train.shape[1]))
     model.compile(
-        optimizer=optimizers.Adam(lr=1e-4),
+        optimizer=optimizers.Adam(lr=1e-3),
         loss='binary_crossentropy',
         metrics=['binary_accuracy']
     )
@@ -137,10 +137,10 @@ def test(engine_string, chekpoint_path, submit_dir, filename):
                               'aria_circularity_mean, aria_circularity_density_mean, aria_circularity_mean_small, aria_circularity_density_mean_small, aria_circularity_mean_medium, '
                               'aria_circularity_density_mean_medium, aria_circularity_mean_large, aria_circularity_density_mean_large, aria_circularity_mean_extralarge, '
                               'aria_circularity_density_mean_extralarge, number_of_nucleus_circularity_small, number_of_nucleus_circularity_medium, '
-                              'number_of_nucleus_circularity_large FROM public.herohe_data WHERE her2status = -1;',
+                              'number_of_nucleus_circularity_large FROM public.herohe_data WHERE her2status != -1;',
                               engine)
 
-    files_test_raw = np.array(pd.read_sql('SELECT image_id FROM public.herohe_data WHERE her2status = -1;', engine))
+    files_test_raw = np.array(pd.read_sql('SELECT name FROM public.herohe_data WHERE her2status != -1;', engine))
 
     X_test = np.array(df_test_raw)
     X_test = np.where(np.isnan(X_test), 0, X_test)
@@ -185,7 +185,7 @@ def test(engine_string, chekpoint_path, submit_dir, filename):
     csvfile.write(line + "\n")
     for item in test_results:
         line_arr = []
-        line_arr.append(item)
+        line_arr.append(item.split("_")[0])
         for item2 in test_results[item]:
             line_arr.append(item2)
         line = ','.join(map(str, line_arr))
