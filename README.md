@@ -9,7 +9,10 @@ I. QuPath image preprocessing:
 - The output will be in the Project QuPath Folder
 
 II. SQL Database Setup in Python\
-  TODO
+- You have to update the "python_script/dataPreperation.py"
+   - Line 8: Path to QuPath Project folder with the extraced dada ("PROJECT_BASE_DIR/detections")
+   - Line 9: Database connection string
+- Run the dataPreperation.py file
 
 III. Run classification 
 
